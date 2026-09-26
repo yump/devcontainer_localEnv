@@ -1,0 +1,11 @@
+{
+  "name": "test",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile",
+  },
+  "runArgs": [
+      "--add-host",
+      "${localEnv:HOSTNAME}:host-gateway",
+  ],
+}
