@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "$0 $@" | ts '[%b %d %.T]' >> /tmp/podman_wrapper.log
+env | ts '[%b %d %.T]' >> /tmp/podman_wrapper_env.log
+
+if [[ -v ZED_FLATPAK_LIB_PATH ]]; then
+    unset LD_LIBRARY_PATH
+fi
+exec /usr/bin/podman "$@"
